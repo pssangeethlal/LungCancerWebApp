@@ -1,0 +1,27 @@
+body{
+    font-family: Larsseit,Helvetica,Arial,sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.875;
+    color: #4f627a;
+    
+}
+.logo{
+    width: 57px;
+    height: 57px;
+    margin: 5px;
+    float: left;
+    padding-bottom: 12px;
+}
+.about{
+    width: 35px;
+    float: left;
+}
+.bg{
+    background-image: url("https://www.idfreshfood.com/wp-content/uploads/2017/09/contact_us_2.jpg");
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6em;
+    
+}
