@@ -3,6 +3,8 @@ body{
     font-size: 1.6rem;
     line-height: 1.875;
     color: #4f627a;
+    background: radial-gradient(rgb(8, 91, 124),black);
+    
     
 }
 .logo{
@@ -25,3 +27,4 @@ body{
     padding: 6em;
     
 }
+#
