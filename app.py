@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, url_for, redirect,flash
-# from keras.models import load_model
-# from keras.preprocessing import image
-# import tensorflow as tf
-# import numpy as np
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+import numpy as np
 from werkzeug.utils import secure_filename
-#model = load_model('best_model_1.hdf5')
+model = load_model('best_model_1.hdf5')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -13,7 +12,7 @@ app.secret_key = "mahnofman"
 @app.route('/')
 def home():
     return render_template('index.html')
-'''
+
 @app.route('/', methods=["POST","GET"])
 def predict():
     if request.method == 'POST':
@@ -29,10 +28,13 @@ def predict():
             filename = secure_filename(file.filename)
             img_path = "./static/images/"+file.filename
             file.save(img_path)
+            print("---------------------------ok---------------------------")
             test_image = image.load_img(img_path,target_size = (227,227))
             test_image = image.img_to_array(test_image)
             test_image = np.array([test_image], dtype=np.float16) / 255.0
+            print("---------------------------k---------------------------",test_image.shape())
             prediction = model.predict(test_image)
+            print("---------------------------kkkk---------------------------")
             categories = ["Cancerous","Non cancerous"]
             string = categories[np.argmax(prediction)]
             print("predvalue...........---------",np.max(prediction))
@@ -40,7 +42,6 @@ def predict():
         else:
                 flash('Allowed image types are -> png, jpg, jpeg')
                 return redirect('prediction')
-   ''' 
 @app.route('/prediction')
 def pred_page():
     return render_template('index.html',scrollToAnchor="detection-sec")
